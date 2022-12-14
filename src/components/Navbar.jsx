@@ -2,13 +2,15 @@
 function NavBar() {
 
   return (
-    <div className="container-navbar">
+    <header className="container-navbar">
       <nav>
         <ul>
-          <li><a href="#">Rick and Morty Web</a></li>
+          <li>
+            <a href="#">Rick & Morty</a>
+          </li>
         </ul>
       </nav>
-    </div>
+    </header>
   )
 }
 

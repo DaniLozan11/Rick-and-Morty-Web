@@ -1,6 +1,6 @@
 import { StatusIcon } from "../Icons/StatusIcon"
 
-function Characters({ characters = [] }) {
+function Characters({ characters }) {
   return (
     <section className="container-character">
       <div className='colums-container'>
@@ -8,22 +8,25 @@ function Characters({ characters = [] }) {
           characters.map((character) => (
             <div key={character.id} className="card-character">
 
-              <div className="image-character"><img src={character.image} alt={character.image} /></div>
+              <div className="image-character">
+                <img src={character.image} alt={character.image} />
+              </div>
 
               <div className="card-info">
-
                 <div className="name-status">
                   <h4>{character.name}</h4>
-                  <p>{character.status === 'Alive' &&
-                    (<StatusIcon color={"#00FF10"} />)
-                  }  {character.status} - {character.species}</p>
+                  <p>
+                    {character.status === 'Alive' && (<StatusIcon color={"#00FF10"} />)
+                      || character.status === 'Dead' && (<StatusIcon color={"#F00011"} />)
+                      || character.status === 'unknown' && (<StatusIcon color={"#808080"} />)
+                    }
+                    {character.status} - {character.species}</p>
                 </div>
 
                 <div className="text-location">
                   <span>Location:</span>
                   <p>{character.location.name}</p>
                 </div>
-
               </div>
             </div>
           ))
